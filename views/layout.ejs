@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Document</title>
+
+<% include includes/head %>
+
+<body>
+  <div id="app">
+  <% include partials/header %>
+  
+  
+  <%- body %>
+  
+  <% include includes/footer %>
+  </div>
+
+
+
+  <script>
+      var listings_vue = new Vue({
+        el:'#app',
+        data:{
+          user
+        }
+      })
+
+    
+  </script>
+
+</body>
+
+</html>
