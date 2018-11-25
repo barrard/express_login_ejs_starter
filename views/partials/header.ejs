@@ -1,20 +1,19 @@
 <header>
   <div v-if="user">
-      Hi {{user.email}}
+    Hi {{user.email}}
 
-    <ul></ul>
-    <li><a href='/user'>User page</a></li>
-    <li><a href='/logout'>Logout</a></li>
+    <ul>
+      <li><a href='/user'>User page</a></li>
+      <li><a href='/auth/logout'>Logout</a></li>
+
   </div>
   <div v-else>
     <li class="nav-item">
-      <a class="nav-link" href="/login"><i class="fa fa-sign-in"
-          aria-hidden="true"></i>
+      <a class="nav-link" href="/auth/login"><i class="fa fa-sign-in" aria-hidden="true"></i>
         Login</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/register"><i class="fa fa-wpforms"
-          aria-hidden="true"></i>
+      <a class="nav-link" href="/auth/register"><i class="fa fa-wpforms" aria-hidden="true"></i>
         Register</a>
     </li>
   </div>

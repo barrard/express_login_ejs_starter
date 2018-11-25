@@ -9,7 +9,6 @@ const express_layouts = require('express-ejs-layouts')
 const path = require('path');
 const session = require('express-session')
 const mongoStore = require('connect-mongo')(session)
-const passport = require('passport')
 const express_validator = require('express-validator')
 const csurf = require('csurf');
 
@@ -24,7 +23,6 @@ module.exports = (app)=>{
   app.use(cookieParser());
   app.use(express_layouts)
 
-  app.use(express.static(path.join(__dirname, 'public')));
 
   //SESSION OPTIONS
   const mongo_store = new mongoStore({ url: `mongodb://localhost/${db_name}` })
@@ -44,11 +42,8 @@ module.exports = (app)=>{
   const session_middlesware = session(session_options)
   app.use(session_middlesware);
 
-  const auth = require('./auth.js')
+  const passport_auth = require('./auth.js')(session_options, app)
 
-  app.use(passport.initialize())
-  app.use(passport.session(session_options))
-  auth((passport))
   app.use(csurf())
   app.use(function (err, req, res, next) {
     logger.log('csrf_token'.bgWhite)

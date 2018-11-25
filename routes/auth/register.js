@@ -33,7 +33,7 @@ module.exports = async function(req, res){
     });
 
     logger.log('errors')
-    res.redirect('/register')
+    res.redirect('/auth/register')
 
   } else {
     try {
@@ -47,7 +47,7 @@ module.exports = async function(req, res){
           danger: 'Email is already taken.'
         }]
         req.session.messages = [...errors]
-        res.redirect('/register')
+        res.redirect('/auth/register')
       } else {
         logger.log('no user with this email yet'.bgGreen)
         const new_user = new User({

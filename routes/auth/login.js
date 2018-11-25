@@ -6,6 +6,6 @@ module.exports = function (req, res) {
   // `req.user` contains the authenticated user.
   req.session.messages.push({ 'success': 'You are now logged in' })
   //  res.redirect('/edit-accounts/' + req.user.username);
-  res.redirect('/');
+  res.redirect('/user');
   // res.redirect('/account-profile');
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Document</title>
+
+<% include ../includes/head %>
+
+<body>
+  <div id="app">
+  <% include ../partials/header %>
+  
+  
+  <%- body %>
+  
+  <% include ../includes/footer %>
+  </div>
+
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        user
+      }
+    })
+  </script>
+
+</html>

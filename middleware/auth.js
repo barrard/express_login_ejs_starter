@@ -1,7 +1,28 @@
+//passport is like auth middlware
+const passport = require('passport')
+//we are defining a local strategy here
 const Local_Strategy = require('passport-local').Strategy;
 const User = require('../models/user.js')
-module.exports = function(passport) {
+module.exports = function(session_options, app) {
 
+//init passport
+  app.use(passport.initialize())
+//set session options
+  //SESSION OPTIONS
+  // const mongo_store = new mongoStore({ url: `mongodb://localhost/${db_name}` })
+  // const session_options = {
+  //   store: mongo_store,
+  //   secret: process.env.SESSION_SECRET,
+  //   saveUninitialized: true,
+  //   resave: true,
+  //   cookie: {
+  //     //   secure: false,//this is the default setting
+  //     //   httpOnly: true,//this is on by default
+  //     expires: new Date(253402300000000) //last loooong time
+  //   }
+  // }
+  // if (process.env.NODE_ENV == "production") session_options.cookie.secure = true
+  app.use(passport.session(session_options))
 
   //PASSPORT FUNCTIONS
   passport.serializeUser(function (user, done) {
@@ -18,6 +39,7 @@ module.exports = function(passport) {
 
 
   //PASSPORT LOCAL METHOD
+  //local strategy defined 
   passport.use('local', new Local_Strategy({
     usernameField: 'email',
     passwordField: 'password',
