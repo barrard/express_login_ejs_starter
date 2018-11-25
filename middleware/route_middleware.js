@@ -4,7 +4,7 @@ module.exports = {
       return next();
     }
     logger.log('non-authenticated user being redirected'.bgWhite)
-    res.redirect('/login')
+    res.redirect('/auth/login')
 
   }
 }

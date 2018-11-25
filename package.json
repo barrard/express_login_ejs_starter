@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "build": "webpack --config webpack.config.dev.js",
-    "watch": "webpack --watch --config webpack.config.dev.js",
-    "serve": "npm run watch & live-server"
+    "start": "nodemon ./bin/www"
+
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
